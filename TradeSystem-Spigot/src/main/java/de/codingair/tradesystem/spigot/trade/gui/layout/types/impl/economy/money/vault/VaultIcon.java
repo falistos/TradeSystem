@@ -11,7 +11,7 @@ import org.jetbrains.annotations.NotNull;
 
 public class VaultIcon extends EconomyIcon<ShowVaultIcon> {
     public VaultIcon(@NotNull ItemStack itemStack) {
-        super(itemStack, "Coin", "Coins", TradeLogMessages.PAYED_MONEY, TradeLogMessages.RECEIVED_MONEY, true);
+        super(itemStack, "Coin", "Coins", TradeLogMessages.PAYED_MONEY, TradeLogMessages.RECEIVED_MONEY, false);
     }
 
     @Override

@@ -13,7 +13,7 @@ import java.math.BigDecimal;
 
 public class EssentialsIcon extends EconomyIcon<ShowEssentialsIcon> {
     public EssentialsIcon(@NotNull ItemStack itemStack) {
-        super(itemStack, "Coin", "Coins", TradeLogMessages.PAYED_MONEY, TradeLogMessages.RECEIVED_MONEY, true);
+        super(itemStack, "Coin", "Coins", TradeLogMessages.PAYED_MONEY, TradeLogMessages.RECEIVED_MONEY, false);
     }
 
     @Override
