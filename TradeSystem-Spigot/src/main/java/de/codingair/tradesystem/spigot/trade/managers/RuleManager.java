@@ -84,7 +84,7 @@ public class RuleManager {
         if (isViolatingRules(p)) return true;
 
         //pre rules
-        if (other == null) {
+        if (other == null || !p.canSee(other)) {
             p.sendMessage(Lang.getPrefix() + Lang.get("Player_Not_Online", p));
             return true;
         }
@@ -123,11 +123,6 @@ public class RuleManager {
         //post rules
         if (!other.canSee(p)) {
             p.sendMessage(Lang.getPrefix() + Lang.get("Cannot_trade_while_invisible", p));
-            return true;
-        }
-
-        if (!p.canSee(other)) {
-            p.sendMessage(Lang.getPrefix() + Lang.get("Player_Not_Online", p));
             return true;
         }
 
@@ -184,7 +179,13 @@ public class RuleManager {
     }
 
     private static void notifyOfflinePlayer(Player p) {
-        String[] a = Lang.get("Trade_You_are_Offline", p).split("%command%", -1);
+        String text = Lang.get("Trade_You_are_Offline", p);
+        String[] a = text.split("%command%", -1);
+
+        if (a.length != 3) {
+            p.sendMessage(Lang.getPrefix() + text);
+            return;
+        }
 
         String s0 = a[0];
         String s = a[1];
